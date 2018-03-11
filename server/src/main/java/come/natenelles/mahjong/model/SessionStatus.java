@@ -4,9 +4,9 @@ import java.util.Optional;
 
 public class SessionStatus {
     Optional<Long> roomId;
-    Optional<String> name;
+    String name;
 
-    public SessionStatus(Optional<Long> roomId, Optional<String> name) {
+    public SessionStatus(Optional<Long> roomId, String name) {
         this.roomId = roomId;
         this.name = name;
     }
@@ -15,7 +15,7 @@ public class SessionStatus {
         return roomId;
     }
 
-    public Optional<String> getName() {
+    public String getName() {
         return name;
     }
 }

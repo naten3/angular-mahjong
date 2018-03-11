@@ -31,10 +31,15 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile 'org.springframework.boot:spring-session-data-redis'
     compile("org.springframework.boot:spring-boot-starter-security")
-    compile "org.springframework.boot:spring-boot-starter-thymeleaf"
     compile "org.springframework.boot:spring-boot-starter-data-redis"
     compile "org.springframework.boot:spring-boot-devtools"
     compile 'org.webjars:bootstrap'
+
+    compile 'com.fasterxml.jackson.core:jackson-core:2.9.4'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.9.4'
+    compile 'org.codehaus.jackson:jackson-mapper-asl:2.9.4'
+    compile 'com.fasterxml.jackson.datatype:jackson-datatype-jdk9'
+    compile 'com.google.guava:guava:15.0'
 
     testCompile("junit:junit")
 }

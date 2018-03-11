@@ -19,6 +19,7 @@ package come.natenelles.mahjong.controller;
 import come.natenelles.mahjong.UserDetails;
 import come.natenelles.mahjong.model.InitialSessionInfo;
 import come.natenelles.mahjong.model.Room;
+import come.natenelles.mahjong.model.SessionAttributes;
 import come.natenelles.mahjong.model.SessionStatus;
 import come.natenelles.mahjong.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,28 +28,30 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicLong;
 
-@Controller
+@RestController
 public class SessionController {
+	public static final String INIT_PATH = "/init";
+	AtomicLong idGenerator = new AtomicLong();
 
 	@Autowired
 	private RoomService roomService;
 
-	@GetMapping("/init")
-	public InitialSessionInfo getSession() {
-		return new InitialSessionInfo("0");
-	}
-
-	@GetMapping("/session")
-	public void setName(@RequestParam("name") String name, UserDetails userDetails) {
-		userDetails.setName(Optional.of(name));
+	@GetMapping(INIT_PATH)
+	public InitialSessionInfo getSession(@RequestParam("name") String name, HttpSession httpSession) {
+		httpSession.setAttribute(SessionAttributes.USER_DETAILS.name(),
+				new UserDetails(idGenerator.incrementAndGet(), name));
+		return new InitialSessionInfo(httpSession.getId());
 	}
 
 	@GetMapping("/session/status")
-	public SessionStatus getSessionStatus(UserDetails userDetails) {
+	public SessionStatus getSessionStatus(HttpSession session) {
+		UserDetails userDetails = (UserDetails) session.getAttribute(SessionAttributes.USER_DETAILS.name());
 		return new SessionStatus(
 				roomService.getUserRoom(userDetails.getId()).map(Room::getId),
 				userDetails.getName());

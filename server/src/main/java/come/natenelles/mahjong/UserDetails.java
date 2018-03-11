@@ -1,22 +1,18 @@
 package come.natenelles.mahjong;
 
-import java.util.Optional;
-import java.util.UUID;
+import java.io.Serializable;
 
-public class UserDetails {
-    private Optional<String> name = Optional.empty();
-    private Long id;
+public class UserDetails implements Serializable{
+    private final Long id;
+    private final String name;
 
-    public UserDetails(Long id) {
+    public UserDetails(Long id, String name) {
         this.id = id;
-    }
-
-    public Optional<String> getName() {
-        return name;
-    }
-
-    public void setName(Optional<String> name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public Long getId() {

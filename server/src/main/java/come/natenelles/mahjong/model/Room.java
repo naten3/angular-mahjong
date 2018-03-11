@@ -1,9 +1,9 @@
 package come.natenelles.mahjong.model;
 
 public class Room {
-    long id;
+    Long id;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
