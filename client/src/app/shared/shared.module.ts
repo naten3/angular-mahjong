@@ -1,17 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { AutoFocusDirective } from './auto-focus.directive';
 
-import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: [
-    LoaderComponent
-  ],
-  exports: [
-    LoaderComponent
-  ]
+    imports: [],
+    exports: [AutoFocusDirective],
+    declarations: [AutoFocusDirective],
+    providers: [],
 })
 export class SharedModule { }

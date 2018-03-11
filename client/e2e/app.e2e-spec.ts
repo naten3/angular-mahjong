@@ -1,21 +1,14 @@
-import { browser } from 'protractor';
-import { AppPage } from './app.po';
+import { NgrxAppPage } from './app.po';
 
-describe('app', () => {
-  let page: AppPage;
+describe('ngrx-app App', () => {
+  let page: NgrxAppPage;
 
   beforeEach(() => {
-    page = new AppPage();
+    page = new NgrxAppPage();
   });
 
-  it('should display login page and login into app', () => {
+  it('should display message saying app works', () => {
     page.navigateTo();
-    expect(browser.getCurrentUrl()).toContain('/login');
-    page.login();
-  });
-
-  it('should display hello message', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Hello world !');
+    expect(page.getParagraphText()).toEqual('app works!');
   });
 });
