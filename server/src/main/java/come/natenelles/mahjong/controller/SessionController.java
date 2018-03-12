@@ -36,7 +36,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
 public class SessionController {
-	public static final String INIT_PATH = "/init";
+	public static final String INIT_PATH = "/session/init";
 	AtomicLong idGenerator = new AtomicLong();
 
 	@Autowired

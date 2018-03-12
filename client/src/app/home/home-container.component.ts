@@ -12,17 +12,15 @@ import * as fromRoot from 'app/core/store';
 @Component({
     selector: 'app-home',
     template: `
-     
+
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">NgRx-Store-Sample-App</a>
       </div>
       <ul class="nav navbar-nav">
-       
         <li routerLinkActive="active" [routerLink]="['tree']" routerLinkActiveOptions="{exact:true}"><a>Tree</a></li>
         <li routerLinkActive="active" routerLinkActiveOptions="{exact:true}" [routerLink]="['todo']"><a>Todo</a></li>
-
       </ul>
     </div>
   </nav>

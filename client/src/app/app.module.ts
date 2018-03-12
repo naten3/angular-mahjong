@@ -24,8 +24,8 @@ import { CoreModule } from 'app/core/core.module';
 import { routes } from 'app/app.routes';
 import { AutoSaveContainerComponent } from './home/auto-save-container.component';
 import { HomeContainerComponent } from './home/home-container.component';
-import { SharedModule } from "app/shared/shared.module";
-import { LauncherComponent } from "app/home/launcher.component";
+import { SharedModule } from 'app/shared/shared.module';
+import { LauncherComponent } from 'app/home/launcher.component';
 
 
 @NgModule({

@@ -4,8 +4,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-import { TreeDataService } from 'app/core/services/tree-data.service';
-import { LocalStorageService } from 'app/core/services/local-storage.service';
+import { TreeDataService, LocalStorageService, SessionService} from 'app/core/services';
 import { TreeEvents } from 'app/tree/tree-events';
 import { reducer } from 'app/core/store';
 import { SaveEffects } from 'app/core/store/save/save.effects';
@@ -25,7 +24,7 @@ import { RouterStoreModule } from '@ngrx/router-store';
     ],
     exports: [],
     declarations: [],
-    providers: [LocalStorageService, TreeDataService, TreeEvents],
+    providers: [LocalStorageService, TreeDataService, TreeEvents, SessionService],
 })
 
 export class CoreModule {

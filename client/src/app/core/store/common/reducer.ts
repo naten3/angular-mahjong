@@ -7,6 +7,7 @@ import * as fromRouter from '@ngrx/router-store';
 import * as todoReducer from 'app/core/store/todo/todo.reducer';
 import * as treeReducer from 'app/core/store/tree/tree.reducer';
 import * as saveReducer from 'app/core/store/save/save.reducer';
+import * as sessionReducer from 'app/core/store/session/session.reducer';
 
 import { restoreStateReducer } from 'app/core/store/restore/restore.reducer';
 
@@ -15,6 +16,7 @@ const reducers = {
     todos: todoReducer.reducer,
     tree: treeReducer.reducer,
     save: saveReducer.reducer,
+    session: sessionReducer.reducer,
     router: fromRouter.routerReducer
 };
 
